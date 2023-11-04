@@ -58,7 +58,7 @@ export const Quiz = () => {
 
   const selectedQuestion = questions[selectedQuestionIndex];
   if (!selectedQuestion) {
-    return;
+    return <></>;
   }
 
   return (
