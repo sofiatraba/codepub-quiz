@@ -18,7 +18,7 @@ export const Quiz = () => {
       const response = await fetch(`${BASE_URL}/quiz/${id}`).then((response) =>
           response.json()
       );
-      setQuestions(response.Item.questions);
+      setQuestions(response.questions);
     };
     getQuiz();
 
@@ -28,9 +28,9 @@ export const Quiz = () => {
     const response = await fetch(
         `${BASE_URL}/quiz/${id}/question/${questionId}`
     ).then((response) => response.json());
-    console.log(response.Items[0].questions[questionId].correctOption)
-    setCorrectOptionId(response.Items[0].questions[questionId].correctOption);
-    if (optionId === response.Items[0].questions[questionId].correctOption) {
+
+    setCorrectOptionId(response.correctOption);
+    if (optionId === response.correctOption) {
       setCorrectCount(correctCount + 1);
     }
   };
