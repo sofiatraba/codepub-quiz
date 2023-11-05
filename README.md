@@ -476,7 +476,7 @@ Set `isFinished` to true when the quiz is over and display the `Result` componen
 ---
 # [**The final Quiz app**](shorturl.at/LTY15)
 The source code for the final quiz app can be found in the final branch. The code is cleaned up and includes expansions such as enabling multiple people to join in the same quiz by entering the quiz id and a username, storing a database of multiple quizzes, storing the username, score and time for the high score board. The final quiz game can be played [here](http://shorturl.at/LTY15) with the code `codepub2022`. The high score board can be seen [here](http://codepub-quiz.s3-website.eu-central-1.amazonaws.com/admin) with the password `codepub.admin`.
-
+TBD!
 The architecture of the backend and frontend is as follows:
 
 ![Architecture](./images/architecture.jpg "Architecture")
