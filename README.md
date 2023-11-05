@@ -170,8 +170,8 @@ export const Quiz = () => {
 ...
 **/
   const selectedQuestion = questions[selectedQuestionIndex];
-  if (!selectedQuestion) {
-    return;
+   if (!selectedQuestion) {
+    return <></>;
   }
 
   return (
@@ -248,7 +248,7 @@ When an option is selected, this function is triggered with the `questionId` and
 /**
   const selectedQuestion = questions[selectedQuestionIndex];
   if (!selectedQuestion) {
-    return;
+    return <></>;
   }
 **/
 ```
@@ -302,7 +302,7 @@ Fetch the correct answer as soon as an option was selected. Set the `correctOpti
 ```
 // quiz.tsx
 /**
-  const onSelectOption = async (questionId: string, optionId: string) => {
+  const onSelectOption = *async* (questionId: string, optionId: string) => {
     setSelectedOptionId(optionId);
 **/
     const response = await fetch(
@@ -449,7 +449,7 @@ If there are no more questions in the quiz, display a Finish button instead of a
 ) : (
 <button onClick={finish} disabled={!selectedOptionId}>
     Finish
-</button>
+</button>)}
 ```
 
 Set `isFinished` to true when the quiz is over and display the `Result` component with the `correctCount` and `questions.length`.
