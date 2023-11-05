@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router";
 import {BASE_URL} from "../constants";
-import {Option, Question} from "../components";
+import {Option, Question, Result} from "../components";
+
 
 export const Quiz = () => {
   const {id} = useParams();
@@ -9,14 +10,14 @@ export const Quiz = () => {
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
   const [selectedOptionId, setSelectedOptionId] = useState("");
   const [correctOptionId, setCorrectOptionId] = useState("");
+  const [isFinished, setIsFinished] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0);
 
   useEffect(() => {
     const getQuiz = async () => {
       const response = await fetch(`${BASE_URL}/quiz/${id}`).then((response) =>
           response.json()
       );
-      console.log(response)
-      console.log(response.Item.questions)
       setQuestions(response.Item.questions);
     };
     getQuiz();
@@ -27,8 +28,11 @@ export const Quiz = () => {
     const response = await fetch(
         `${BASE_URL}/quiz/${id}/question/${questionId}`
     ).then((response) => response.json());
-    console.log(response.Items[0].questions[0].correctOption)
-    setCorrectOptionId(response.Items[0].questions[0].correctOption);
+    console.log(response.Items[0].questions[questionId].correctOption)
+    setCorrectOptionId(response.Items[0].questions[questionId].correctOption);
+    if (optionId === response.Items[0].questions[questionId].correctOption) {
+      setCorrectCount(correctCount + 1);
+    }
   };
 
   const selectedQuestion = questions[selectedQuestionIndex];
@@ -44,6 +48,14 @@ export const Quiz = () => {
       setCorrectOptionId("");
     }
   };
+
+  const finish = () => {
+    setIsFinished(true);
+  };
+
+  if (isFinished) {
+    return <Result correct={correctCount} total={questions.length} />;
+  }
 
   return (
       <div className="p-4 w-full md:w-96 m-auto">
@@ -63,11 +75,16 @@ export const Quiz = () => {
             );
           })}
         </Question>
-        {selectedQuestionIndex < questions.length - 1 && (
+
+        {selectedQuestionIndex < questions.length - 1 ? (
             <button onClick={next} disabled={!selectedOptionId}>
               Next
             </button>
-        )}
+        ) : (
+            <button onClick={finish} disabled={!selectedOptionId}>
+              Finish
+            </button>)
+        }
       </div>
   );
 
