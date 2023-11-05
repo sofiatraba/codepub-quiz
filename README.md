@@ -1,5 +1,5 @@
 # 0. **Let's make a Quiz app with React**
-Hello all Berliner Code Pubers! In this workshop, we will be creating a small quiz app with [React](https://reactjs.org/).
+Hello all Cologne Code Pubers! In this workshop, we will be creating a small quiz app with [React](https://reactjs.org/).
 
 ---
 
@@ -37,15 +37,15 @@ The steps are divided into **Inspection** (explanation and hints) and **Implemen
 
 ---
 
-If you are using an internal editor on your computer, you can fetch the basic project from this github repository on [the baseline branch](https://github.com/zk22/codepub-quiz/tree/baseline). The prerequisites are the following:
+If you are using an internal editor on your computer, you can fetch the basic project from this github repository on [the baseline branch](https://github.com/KatarinaLang/codepub-quiz/tree/baseline). The prerequisites are the following:
 ```
 nodejs: https://nodejs.org/en/
 yarn: https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable
 ```
 
-Otherwise, just use [React playground](https://codesandbox.io/s/quiz-app-bziuiv).
+Otherwise, just use TBD! [React playground](https://codesandbox.io/s/quiz-app-bziuiv).
 
-[The final branch](https://github.com/zk22/codepub-quiz/tree/final) has the final game that we play at the end of the workshop.
+[The final branch]() TBD! has the final game that we play at the end of the workshop.
 
 The template consists of multiple React TypeScript files, where each file represents a [**React component with props**](https://reactjs.org/docs/components-and-props.html).
 - The `App.tsx` component routes the path  `/` to the `home.tsx` component and `quiz/:id` to the `quiz.tsx` component.
